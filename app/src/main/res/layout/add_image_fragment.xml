@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/add_image_bg">
+
+    
+    <LinearLayout
+        android:id="@+id/add_image_operation_region"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        >
+        <ImageButton
+            android:id="@+id/choose_image_image_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_add"
+            android:background="@android:color/transparent"
+            />
+        <TextView
+            android:id="@+id/choose_image_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_image_label"
+            android:textAlignment="center"
+            android:textColor="@color/silver"
+            android:clickable="true"
+            />
+        <ImageButton
+            android:id="@+id/take_photo_image_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_camera"
+            android:background="@android:color/transparent"
+            />
+        <TextView
+            android:id="@+id/take_photo_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_photo_label"
+            android:textAlignment="center"
+            android:textColor="@color/silver"
+            android:clickable="true"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/add_image_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/add_image_operation_region"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+</RelativeLayout>
