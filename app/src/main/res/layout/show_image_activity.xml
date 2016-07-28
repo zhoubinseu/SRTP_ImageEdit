@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/show_image_drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
-    <ImageView
-        android:id="@+id/show_image_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    >
     <LinearLayout
-        android:id="@+id/hidden_menu"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/black">
+        <ImageView
+            android:id="@+id/show_image_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
         android:background="@android:color/transparent">
         <ListView
-            android:id="@+id/operation_list"
+            android:id="@+id/choose_operation_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@color/silver"
+            android:dividerHeight="1dp" >
         </ListView>
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/choose_function_button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/edit"
-        android:background="@android:color/transparent"/>
 
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

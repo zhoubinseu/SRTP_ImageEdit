@@ -6,4 +6,26 @@
     <string name="menu_share">分享</string>
     <string name="menu_save">保存</string>
     <string name="menu_open">打开</string>
+    <string name="tool_adjust">调整图片</string>
+    <string name="tool_detail">突出细节</string>
+    <string name="tool_clip">裁剪</string>
+    <string name="tool_rotate">旋转</string>
+    <string name="tool_morph">变形</string>
+    <string name="tool_brush">画笔</string>
+    <string name="tool_local">局部</string>
+    <string name="tool_repair">修复</string>
+    <string name="tool_vignette">晕影</string>
+    <string name="tool_face">面部</string>
+    <string name="filter_blur">镜头模糊</string>
+    <string name="filter_halo">魅力光晕</string>
+    <string name="filter_contrast">色调对比度</string>
+    <string name="filter_hdr">HDR景观</string>
+    <string name="filter_drama">戏剧效果</string>
+    <string name="filter_mottled">斑驳</string>
+    <string name="filter_film">粗粒胶片</string>
+    <string name="filter_vintage">复古</string>
+    <string name="filter_reminiscence">怀旧</string>
+    <string name="filter_old_film">黑白电影</string>
+    <string name="filter_black_white">黑白</string>
+    <string name="filter_frame">相框</string>
 </resources>

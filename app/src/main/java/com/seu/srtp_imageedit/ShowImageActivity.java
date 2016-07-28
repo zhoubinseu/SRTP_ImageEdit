@@ -4,14 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/7/19.
@@ -20,6 +26,9 @@ public class ShowImageActivity extends AppCompatActivity{
     private static final String IMAGE_PATH="com.seu.srtp.imageedit.image_path";
     private File  PHOTO_DIR=new File(Environment.getExternalStorageDirectory() + "/SRTP_ImageEdit/CameraCache");
 
+    private List<Function_Item> mFunctionList=new ArrayList<Function_Item>();//功能列表
+    private DrawerLayout mDrawerLayout;
+    private ListView mListView;
     private ImageView mImageView;
     //private Bitmap mBitmap;//显示在ImageView上的图片
 
@@ -51,10 +60,46 @@ public class ShowImageActivity extends AppCompatActivity{
         //actionBar.setDisplayUseLogoEnabled(true);
 
         setContentView(R.layout.show_image_activity);
+        mDrawerLayout=(DrawerLayout)findViewById(R.id.show_image_drawer_layout);
+        mListView=(ListView)findViewById(R.id.choose_operation_list);
         mImageView=(ImageView)findViewById(R.id.show_image_image_view);
+
+        initFunctionList();
+        Function_Item_Adapter adapter=new Function_Item_Adapter(ShowImageActivity.this,R.layout.operation_list_item,mFunctionList);
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Function_Item item=mFunctionList.get(position);
+                Toast.makeText(ShowImageActivity.this,item.getmFuntionNameId(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
         mImagePath=getIntent().getStringExtra(IMAGE_PATH);
         //Toast.makeText(ShowImageActivity.this,path,Toast.LENGTH_SHORT).show();
         Image.showImage(mImagePath, mImageView);
+    }
+
+    /**
+     * 初始化功能项列表的数据
+     */
+    private void initFunctionList(){
+        Function_Item item1=new Function_Item(R.string.tool_adjust,R.mipmap.ic_launcher);
+        mFunctionList.add(item1);
+        Function_Item item2=new Function_Item(R.string.tool_clip,R.mipmap.ic_launcher);
+        mFunctionList.add(item2);
+        Function_Item item3=new Function_Item(R.string.tool_rotate,R.mipmap.ic_launcher);
+        mFunctionList.add(item3);
+        Function_Item item4=new Function_Item(R.string.tool_detail,R.mipmap.ic_launcher);
+        mFunctionList.add(item4);
+        Function_Item item5=new Function_Item(R.string.tool_morph,R.mipmap.ic_launcher);
+        mFunctionList.add(item5);
+        Function_Item item6=new Function_Item(R.string.tool_brush,R.mipmap.ic_launcher);
+        mFunctionList.add(item6);
+        Function_Item item7=new Function_Item(R.string.tool_local,R.mipmap.ic_launcher);
+        mFunctionList.add(item7);
+        Function_Item item8=new Function_Item(R.string.tool_repair,R.mipmap.ic_launcher);
+        mFunctionList.add(item8);
     }
 
     /**
