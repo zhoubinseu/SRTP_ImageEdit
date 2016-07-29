@@ -35,7 +35,7 @@ public class ShowImageActivity extends AppCompatActivity{
     private String mImagePath;//当前图片的路径
 
     /**
-     * 由其他Activity或Fragment调用，启动EditActivity
+     * 由其他Activity或Fragment调用，启动ShowImageActivity
      * @param packageContext
      * @param path
      * @return
@@ -71,7 +71,9 @@ public class ShowImageActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Function_Item item=mFunctionList.get(position);
-                Toast.makeText(ShowImageActivity.this,item.getmFuntionNameId(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ShowImageActivity.this,item.getmFuntionNameId(),Toast.LENGTH_SHORT).show();
+                //将图片的路径和选择的功能的名称ID作为Intent的参数，打开EditImageActivity
+                startActivity(EditImageActivity.newIntent(ShowImageActivity.this,mImagePath,item.getmFuntionNameId()));
             }
         });
 

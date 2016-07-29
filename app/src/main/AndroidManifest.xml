@@ -27,6 +27,10 @@
             android:theme="@style/Theme.AppCompat"
             android:parentActivityName=".AddImageActivity">
         </activity>
+        <activity
+            android:name=".EditImageActivity"
+            android:theme="@style/Theme.AppCompat">
+        </activity>
     </application>
 
 </manifest>
