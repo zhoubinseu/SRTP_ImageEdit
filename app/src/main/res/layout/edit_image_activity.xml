@@ -4,15 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/operation_panel"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-    </LinearLayout>
+        android:background="@android:color/black">
+        <ImageButton
+            android:id="@+id/cancel_button"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_cancel_button"
+            android:layout_alignParentLeft="true"
+            android:background="@android:color/transparent"
+            />
+
+        <ImageButton
+            android:id="@+id/confirm_button"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_apply_button"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            />
+
+        <FrameLayout
+            android:id="@+id/bottom_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/cancel_button"
+            android:layout_toLeftOf="@id/confirm_button"
+            >
+        </FrameLayout>
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/image_to_edit"

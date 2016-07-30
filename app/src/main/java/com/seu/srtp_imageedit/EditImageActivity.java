@@ -3,9 +3,13 @@ package com.seu.srtp_imageedit;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
 
 /**
  * Created by Administrator on 2016/7/29.
@@ -41,7 +45,7 @@ public class EditImageActivity extends AppCompatActivity{
 
         mImageView=(ImageView)findViewById(R.id.image_to_edit);
         Image.showImage(mImagePath,mImageView);//显示图片
-        //判断功能号，加载布局
+        //判断功能号，加载碎片，默认布局为旋转操作的布局
         judgeFunction(mFunctionNameId);
     }
 
@@ -54,6 +58,12 @@ public class EditImageActivity extends AppCompatActivity{
             //旋转
             case R.string.tool_rotate:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                FragmentManager fm=getSupportFragmentManager();
+                Fragment fragment=fm.findFragmentById(R.id.bottom_fragment_container);
+                if(fragment==null){
+                    fragment=new RotateBottomFragment();
+                    fm.beginTransaction().add(R.id.bottom_fragment_container,fragment).commit();
+                }
                 break;
             //调整
             case R.string.tool_adjust:

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/left_rotate_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_left_rotate_button"
+        android:background="@android:color/transparent"/>
+    <ImageButton
+        android:id="@+id/right_rotate_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_right_rotate_button"
+        android:background="@android:color/transparent"/>
+    <ImageButton
+        android:id="@+id/x_rotate_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_x_rotate_button"
+        android:background="@android:color/transparent"/>
+    <ImageButton
+        android:id="@+id/y_rotate_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_y_rotate_button"
+        android:background="@android:color/transparent"/>
+
+
+</LinearLayout>
