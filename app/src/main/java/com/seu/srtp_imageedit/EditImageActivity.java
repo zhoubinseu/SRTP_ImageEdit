@@ -3,13 +3,18 @@ package com.seu.srtp_imageedit;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
+
+import java.io.File;
 
 /**
  * Created by Administrator on 2016/7/29.
@@ -18,7 +23,13 @@ public class EditImageActivity extends AppCompatActivity{
 
     private static final String IMAGE_PATH="com.seu.srtp.imageedit.image_path";
     private static final String FUNCTION_CODE="com.seu.srtp.imageedit.function_code";
+
+    private File PHOTO_DIR=new File(Environment.getExternalStorageDirectory() + "/SRTP_ImageEdit/TempApplyPic");
+
     private ImageView mImageView;
+    private ImageButton mCancelButton;
+    private ImageButton mApplyButton;
+
     private String mImagePath;//当前图片的路径
     private int mFunctionNameId;//当前界面的处理功能ID
 
@@ -41,12 +52,35 @@ public class EditImageActivity extends AppCompatActivity{
         setContentView(R.layout.edit_image_activity);
 
         mImagePath=getIntent().getStringExtra(IMAGE_PATH);
-        mFunctionNameId=getIntent().getIntExtra(FUNCTION_CODE,R.string.tool_adjust);
+        mFunctionNameId=getIntent().getIntExtra(FUNCTION_CODE, R.string.tool_adjust);
 
         mImageView=(ImageView)findViewById(R.id.image_to_edit);
         Image.showImage(mImagePath,mImageView);//显示图片
         //判断功能号，加载碎片，默认布局为旋转操作的布局
         judgeFunction(mFunctionNameId);
+
+        //取消和应用按钮的点击事件
+        mCancelButton=(ImageButton)findViewById(R.id.cancel_button);
+        //每次需要从外部存储读取，较慢，待改进
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(EditImageActivity.this,"cancel",Toast.LENGTH_SHORT).show();
+                Image.showImage(mImagePath, mImageView);//显示原图
+            }
+        });
+        mApplyButton=(ImageButton)findViewById(R.id.confirm_button);
+        //每次都要先进行保存，获得路径，耗时，待改进
+        mApplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(EditImageActivity.this,"apply",Toast.LENGTH_SHORT).show();
+                mImageView.setDrawingCacheEnabled(true);
+                String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
+                mImageView.setDrawingCacheEnabled(false);
+                startActivity(ShowImageActivity.newIntent(EditImageActivity.this,path));
+            }
+        });
     }
 
     /**
