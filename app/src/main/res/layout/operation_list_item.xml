@@ -9,7 +9,7 @@
         android:id="@+id/opt_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_y_rotate_button"
+        android:src="@mipmap/ic_launcher"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         />
