@@ -90,7 +90,7 @@ public class ShowImageActivity extends AppCompatActivity{
         mFunctionList.add(item1);
         Function_Item item2=new Function_Item(R.string.tool_clip,R.mipmap.ic_launcher);
         mFunctionList.add(item2);
-        Function_Item item3=new Function_Item(R.string.tool_rotate,R.mipmap.ic_launcher);
+        Function_Item item3=new Function_Item(R.string.tool_rotate,R.drawable.ic_right_rotate_button);
         mFunctionList.add(item3);
         Function_Item item4=new Function_Item(R.string.tool_detail,R.mipmap.ic_launcher);
         mFunctionList.add(item4);
