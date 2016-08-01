@@ -86,22 +86,10 @@ public class ShowImageActivity extends AppCompatActivity{
      * 初始化功能项列表的数据
      */
     private void initFunctionList(){
-        Function_Item item1=new Function_Item(R.string.tool_adjust,R.mipmap.ic_launcher);
+        Function_Item item1=new Function_Item(R.string.tool_rotate,R.drawable.ic_right_rotate_button);
         mFunctionList.add(item1);
-        Function_Item item2=new Function_Item(R.string.tool_clip,R.mipmap.ic_launcher);
+        Function_Item item2=new Function_Item(R.string.filter_frame,R.drawable.ic_frame_button);
         mFunctionList.add(item2);
-        Function_Item item3=new Function_Item(R.string.tool_rotate,R.drawable.ic_right_rotate_button);
-        mFunctionList.add(item3);
-        Function_Item item4=new Function_Item(R.string.tool_detail,R.mipmap.ic_launcher);
-        mFunctionList.add(item4);
-        Function_Item item5=new Function_Item(R.string.tool_morph,R.mipmap.ic_launcher);
-        mFunctionList.add(item5);
-        Function_Item item6=new Function_Item(R.string.tool_brush,R.mipmap.ic_launcher);
-        mFunctionList.add(item6);
-        Function_Item item7=new Function_Item(R.string.tool_local,R.mipmap.ic_launcher);
-        mFunctionList.add(item7);
-        Function_Item item8=new Function_Item(R.string.tool_repair,R.mipmap.ic_launcher);
-        mFunctionList.add(item8);
     }
 
     /**

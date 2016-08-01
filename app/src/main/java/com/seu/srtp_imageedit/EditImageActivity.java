@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.seu.srtp_imageedit.Frame.FrameBottomFragment;
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
 
 import java.io.File;
@@ -84,6 +85,15 @@ public class EditImageActivity extends AppCompatActivity{
     }
 
     /**
+     * 添加Fragment对象
+     * @param fragment
+     */
+    private void addFragment(Fragment fragment){
+        FragmentManager fm=getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.bottom_fragment_container,fragment).commit();
+    }
+
+    /**
      * 根据接收到的功能名称ID，加载该功能对应的布局
      * @param functionNameId
      */
@@ -92,12 +102,12 @@ public class EditImageActivity extends AppCompatActivity{
             //旋转
             case R.string.tool_rotate:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
-                FragmentManager fm=getSupportFragmentManager();
-                Fragment fragment=fm.findFragmentById(R.id.bottom_fragment_container);
-                if(fragment==null){
-                    fragment=new RotateBottomFragment();
-                    fm.beginTransaction().add(R.id.bottom_fragment_container,fragment).commit();
-                }
+                addFragment(new RotateBottomFragment());
+                break;
+            //相框
+            case R.string.filter_frame:
+                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new FrameBottomFragment());
                 break;
             //调整
             case R.string.tool_adjust:
