@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.seu.srtp_imageedit.Adjust.AdjustBottomFragment;
 import com.seu.srtp_imageedit.Frame.FrameBottomFragment;
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
 
@@ -113,6 +114,7 @@ public class EditImageActivity extends AppCompatActivity{
             //调整
             case R.string.tool_adjust:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new AdjustBottomFragment());
                 break;
             default:
                 Toast.makeText(EditImageActivity.this,"Have not write!!!",Toast.LENGTH_SHORT).show();

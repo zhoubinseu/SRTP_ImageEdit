@@ -1,13 +1,11 @@
 package com.seu.srtp_imageedit.Frame;
 
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,13 +15,9 @@ import android.widget.Gallery;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.Toast;
 
-import com.seu.srtp_imageedit.EditImageActivity;
 import com.seu.srtp_imageedit.MyGalleryAdapter;
 import com.seu.srtp_imageedit.R;
-
-import java.io.IOException;
 
 /**
  * Created by Administrator on 2016/8/1.
@@ -64,7 +58,7 @@ public class FrameBottomFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.frame_bottom_fragment, container, false);
+        View v=inflater.inflate(R.layout.bottom_fragment_frame, container, false);
 
         mImageView= (ImageView) getActivity().findViewById(R.id.image_to_edit);
         srcBitmapDrawable=mImageView.getDrawable();//原图

@@ -86,10 +86,12 @@ public class ShowImageActivity extends AppCompatActivity{
      * 初始化功能项列表的数据
      */
     private void initFunctionList(){
-        Function_Item item1=new Function_Item(R.string.tool_rotate,R.drawable.ic_right_rotate_button);
-        mFunctionList.add(item1);
-        Function_Item item2=new Function_Item(R.string.filter_frame,R.drawable.ic_frame_button);
-        mFunctionList.add(item2);
+        Function_Item adjust_item=new Function_Item(R.string.tool_adjust,R.drawable.ic_adjust_button);
+        mFunctionList.add(adjust_item);
+        Function_Item rotate_item=new Function_Item(R.string.tool_rotate,R.drawable.ic_right_rotate_button);
+        mFunctionList.add(rotate_item);
+        Function_Item frame_item=new Function_Item(R.string.filter_frame,R.drawable.ic_frame_button);
+        mFunctionList.add(frame_item);
     }
 
     /**

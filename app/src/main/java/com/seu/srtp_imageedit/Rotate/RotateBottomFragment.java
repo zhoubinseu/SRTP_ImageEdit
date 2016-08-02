@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.seu.srtp_imageedit.R;
 
@@ -28,7 +27,7 @@ public class RotateBottomFragment extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.rotate_bottom_fragment,container,false);
+        View v=inflater.inflate(R.layout.bottom_fragment_rotate,container,false);
 
         mLeftRotateButton=(ImageButton)v.findViewById(R.id.left_rotate_button);
         mRightRotateButton=(ImageButton)v.findViewById(R.id.right_rotate_button);
