@@ -12,7 +12,7 @@ import android.widget.ImageView;
  */
 public class MyGalleryAdapter extends BaseAdapter{
     private Context mContext;
-    private int[] mFrameId;
+    private int[] mFrameId;//图片在res中的ID
 
     public MyGalleryAdapter(){
     }
