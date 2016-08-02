@@ -76,9 +76,10 @@ public class EditImageActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //Toast.makeText(EditImageActivity.this,"apply",Toast.LENGTH_SHORT).show();
-                mImageView.setDrawingCacheEnabled(true);
-                String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
-                mImageView.setDrawingCacheEnabled(false);
+                //mImageView.setDrawingCacheEnabled(true);
+                //String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
+                //mImageView.setDrawingCacheEnabled(false);
+                String path=Image.saveImage(mImageView,PHOTO_DIR).getAbsolutePath();
                 startActivity(ShowImageActivity.newIntent(EditImageActivity.this,path));
             }
         });

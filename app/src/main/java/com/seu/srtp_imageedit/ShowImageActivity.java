@@ -116,9 +116,10 @@ public class ShowImageActivity extends AppCompatActivity{
                 Image.shareImage(mImagePath,ShowImageActivity.this);
                 return true;
             case R.id.menu_item_save:
-                mImageView.setDrawingCacheEnabled(true);//确保可以使用getDrawingCache()获得图像
-                String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
-                mImageView.setDrawingCacheEnabled(false);//清空画图缓存区,这样保证连续保存时每次重新加载图像
+                //mImageView.setDrawingCacheEnabled(true);//确保可以使用getDrawingCache()获得图像
+                //String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
+                //mImageView.setDrawingCacheEnabled(false);//清空画图缓存区,这样保证连续保存时每次重新加载图像
+                String path=Image.saveImage(mImageView,PHOTO_DIR).getAbsolutePath();
                 Toast.makeText(ShowImageActivity.this,"保存到"+path,Toast.LENGTH_SHORT).show();
                 return true;
 

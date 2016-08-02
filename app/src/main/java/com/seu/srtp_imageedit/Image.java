@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
@@ -247,6 +250,46 @@ public class Image {
             e.printStackTrace();
         }
         return mCurrentFileName;
+    }
+
+    /**
+     * 保存ImageView控件上的图片到相应的路径下
+     * @param srcBitmapImageView
+     * @param photoDir
+     * @return File
+     */
+    public static File saveImage(final ImageView srcBitmapImageView,final File photoDir){
+        if(!photoDir.exists()){
+            photoDir.mkdirs();
+        }
+        String photoName=System.currentTimeMillis()+".jpg";
+        File mCurrentFileName=new File(photoDir,photoName);
+        try {
+            //获得要保存的具体图像，而不是Bitmap,Bitmap会与ImageView同样大
+            Drawable srcBitmapDrawable=srcBitmapImageView.getDrawable();
+            //Drawable转Bitmap
+            Bitmap srcBitmap=DrawableToBitmap(srcBitmapDrawable);
+            FileOutputStream fileOutputStream=new FileOutputStream(mCurrentFileName);
+            srcBitmap.compress(Bitmap.CompressFormat.JPEG,100,fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return mCurrentFileName;
+    }
+
+    /**
+     * Drawable对象转Bitmap对象
+     * @param drawable
+     * @return
+     */
+    private static Bitmap DrawableToBitmap(Drawable drawable){
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
 }
