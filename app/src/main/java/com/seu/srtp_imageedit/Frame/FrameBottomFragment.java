@@ -42,7 +42,15 @@ public class FrameBottomFragment extends Fragment{
             R.drawable.eft_blend_normal_border_f9, R.drawable.eft_blend_normal_border_f10,
             R.drawable.eft_blend_normal_border_f11, R.drawable.eft_blend_normal_border_f12,
             R.drawable.eft_blend_normal_border_f13, R.drawable.eft_blend_normal_border_f14,
-            R.drawable.eft_blend_normal_border_f15
+            R.drawable.eft_blend_normal_border_f15,
+            R.drawable.icon_frame_1,R.drawable.icon_frame_2,
+            R.drawable.icon_frame_3,R.drawable.icon_frame_4,
+            R.drawable.icon_frame_5,R.drawable.icon_frame_6,
+            R.drawable.icon_frame_7,R.drawable.icon_frame_8,
+            R.drawable.icon_frame_9,R.drawable.icon_frame_10,
+            R.drawable.icon_frame_11,R.drawable.icon_frame_12,
+            R.drawable.icon_frame_13,R.drawable.icon_frame_14,
+            R.drawable.icon_frame_15,
     };
     private int[] mFrameTextureId=new int[]{
             R.drawable.blend_normal_border_f1,R.drawable.blend_normal_border_f2,
@@ -53,6 +61,14 @@ public class FrameBottomFragment extends Fragment{
             R.drawable.blend_normal_border_f11,R.drawable.blend_normal_border_f12,
             R.drawable.blend_normal_border_f13,R.drawable.blend_normal_border_f14,
             R.drawable.blend_normal_border_f15,
+            R.drawable.frame_1,R.drawable.frame_2,
+            R.drawable.frame_3,R.drawable.frame_4,
+            R.drawable.frame_5,R.drawable.frame_6,
+            R.drawable.frame_7,R.drawable.frame_8,
+            R.drawable.frame_9,R.drawable.frame_10,
+            R.drawable.frame_11,R.drawable.frame_12,
+            R.drawable.frame_13,R.drawable.frame_14,
+            R.drawable.frame_15,
     };
 
     @Nullable
@@ -89,9 +105,11 @@ public class FrameBottomFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getActivity(),"将加载"+mFrameTextureId[position],Toast.LENGTH_SHORT).show();
-                //mImageView.setDrawingCacheEnabled(true);//确保可以使用getDrawingCache()获得图像
-                mBitmap=FrameUtil.addFrame(getActivity(),srcBitmapDrawable,mFrameTextureId[position]);
-                //mImageView.setDrawingCacheEnabled(false);//清空画图缓存区,这样每次重新加载图像
+                if(position<=14){
+                    mBitmap=FrameUtil.addFrameByOverLay(getActivity(), srcBitmapDrawable, mFrameTextureId[position]);
+                }else if (position<=29){
+                    mBitmap=FrameUtil.addFrameByStitch(getActivity(),srcBitmapDrawable,mFrameTextureId[position]);
+                }
                 mImageView.setImageBitmap(mBitmap);
             }
         });
