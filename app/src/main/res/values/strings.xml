@@ -6,6 +6,7 @@
     <string name="menu_share">分享</string>
     <string name="menu_save">保存</string>
     <string name="menu_open">打开</string>
+    <string name="tool_scrawl">涂鸦</string>
     <string name="tool_adjust">调整图片</string>
     <string name="tool_detail">突出细节</string>
     <string name="tool_clip">裁剪</string>
@@ -28,4 +29,14 @@
     <string name="filter_old_film">黑白电影</string>
     <string name="filter_black_white">黑白</string>
     <string name="filter_frame">相框</string>
+    <string name="effect_black_white">黑白</string>
+    <string name="effect_binary">二值化</string>
+    <string name="effect_emboss">浮雕</string>
+    <string name="effect_negative">底片</string>
+    <string name="effect_halo">光晕</string>
+    <string name="effect_ice">冰冻</string>
+    <string name="effect_neon">霓虹</string>
+    <string name="effect_nostalgic">怀旧</string>
+    <string name="effect_light">光照</string>
+    <string name="effect">特效</string>
 </resources>

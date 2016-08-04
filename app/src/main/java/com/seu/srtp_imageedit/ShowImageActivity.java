@@ -92,6 +92,10 @@ public class ShowImageActivity extends AppCompatActivity{
         mFunctionList.add(rotate_item);
         Function_Item frame_item=new Function_Item(R.string.filter_frame,R.drawable.ic_frame_button);
         mFunctionList.add(frame_item);
+        Function_Item scrawl_item=new Function_Item(R.string.tool_scrawl,R.drawable.ic_brush_button);
+        mFunctionList.add(scrawl_item);
+        Function_Item effect_item=new Function_Item(R.string.effect,R.drawable.ic_effect_button);
+        mFunctionList.add(effect_item);
     }
 
     /**

@@ -7,17 +7,17 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
 
-/**
+/**gallery只显示图片
  * Created by Administrator on 2016/8/1.
  */
-public class MyGalleryAdapter extends BaseAdapter{
+public class ImageGalleryAdapter extends BaseAdapter{
     private Context mContext;
     private int[] mFrameId;//图片在res中的ID
 
-    public MyGalleryAdapter(){
+    public ImageGalleryAdapter(){
     }
 
-    public MyGalleryAdapter(Context context,int[] data){
+    public ImageGalleryAdapter(Context context, int[] data){
         mContext=context;
         mFrameId=data;
     }

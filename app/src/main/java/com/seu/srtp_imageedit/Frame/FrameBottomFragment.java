@@ -16,19 +16,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-import com.seu.srtp_imageedit.MyGalleryAdapter;
+import com.seu.srtp_imageedit.ImageGalleryAdapter;
 import com.seu.srtp_imageedit.R;
 
 /**
  * Created by Administrator on 2016/8/1.
  */
 public class FrameBottomFragment extends Fragment{
-    private static final String ICON_FOLDER="frame/icon";
-    private static final String TEXTURE_FOLDER="frame/texture";
 
     private ImageButton mImageButton;
     private Gallery mGallery;//显示在悬浮框中
-    private MyGalleryAdapter adapter;
+    private ImageGalleryAdapter adapter;
     private ImageView mImageView;//碎片所在活动的ImageView
     private Bitmap mBitmap;//处理之后的图片
     private Drawable srcBitmapDrawable;//未处理的图片
@@ -99,15 +97,15 @@ public class FrameBottomFragment extends Fragment{
     private void showPopUpWindow(View v){
         View view=LayoutInflater.from(getActivity()).inflate(R.layout.frame_gallery,null,false);
         mGallery=(Gallery)view.findViewById(R.id.choose_frame_gallery);
-        adapter=new MyGalleryAdapter(getActivity(),mFrameIconId);
+        adapter=new ImageGalleryAdapter(getActivity(),mFrameIconId);
         mGallery.setAdapter(adapter);
         mGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getActivity(),"将加载"+mFrameTextureId[position],Toast.LENGTH_SHORT).show();
-                if(position<=14){
+                if(position<=14){//使用图片叠加的方式添加相框
                     mBitmap=FrameUtil.addFrameByOverLay(getActivity(), srcBitmapDrawable, mFrameTextureId[position]);
-                }else if (position<=29){
+                }else if (position<=29){//使用图片拼接的方式添加相框
                     mBitmap=FrameUtil.addFrameByStitch(getActivity(),srcBitmapDrawable,mFrameTextureId[position]);
                 }
                 mImageView.setImageBitmap(mBitmap);

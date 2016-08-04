@@ -13,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.seu.srtp_imageedit.Adjust.AdjustBottomFragment;
+import com.seu.srtp_imageedit.Effect.EffectBottomFragment;
 import com.seu.srtp_imageedit.Frame.FrameBottomFragment;
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
+import com.seu.srtp_imageedit.Scrawl.ScrawlBottomFragment;
 
 import java.io.File;
 
@@ -101,6 +103,11 @@ public class EditImageActivity extends AppCompatActivity{
      */
     private void judgeFunction(int functionNameId){
         switch (functionNameId){
+            //调整
+            case R.string.tool_adjust:
+                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new AdjustBottomFragment());
+                break;
             //旋转
             case R.string.tool_rotate:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
@@ -111,10 +118,15 @@ public class EditImageActivity extends AppCompatActivity{
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
                 addFragment(new FrameBottomFragment());
                 break;
-            //调整
-            case R.string.tool_adjust:
+            //涂鸦
+            case R.string.tool_scrawl:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
-                addFragment(new AdjustBottomFragment());
+                addFragment(new ScrawlBottomFragment());
+                break;
+            //特效
+            case R.string.effect:
+                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new EffectBottomFragment());
                 break;
             default:
                 Toast.makeText(EditImageActivity.this,"Have not write!!!",Toast.LENGTH_SHORT).show();

@@ -13,6 +13,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 
+import com.seu.srtp_imageedit.Image;
+
 /**
  * Created by Administrator on 2016/8/2.
  */
@@ -32,7 +34,7 @@ public class FrameUtil {
         array[1] = new BitmapDrawable(b);
         //将两个图层叠加
         LayerDrawable layer = new LayerDrawable(array);
-        return drawableToBitmap(layer);
+        return Image.DrawableToBitmap(layer);
     }
 
     /**
@@ -55,21 +57,6 @@ public class FrameUtil {
         return Bitmap.createBitmap(bmp,0,0,(int)width,(int)height,matrix,false);
         */
         return Bitmap.createScaledBitmap(bmp, destWidth, destHeight, false);
-    }
-
-    /**
-     * 将原图和相框叠加生成最后的效果图
-     * @param drawable
-     * @return
-     */
-    private static Bitmap drawableToBitmap(Drawable drawable)
-    {
-        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-        Canvas canvas = new Canvas(bitmap);
-        // canvas.setBitmap(bitmap);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        drawable.draw(canvas);
-        return bitmap;
     }
 
     /**
@@ -114,7 +101,7 @@ public class FrameUtil {
         canvas.drawRect(rect, paint);
 
         // 绘原图
-        canvas.drawBitmap(drawableToBitmap(srcBitmapDrawable), (newW - bigW - 2 * smallW) / 2 + smallW, (newH - bigH - 2 * smallH) / 2 + smallH, null);
+        canvas.drawBitmap(Image.DrawableToBitmap(srcBitmapDrawable), (newW - bigW - 2 * smallW) / 2 + smallW, (newH - bigH - 2 * smallH) / 2 + smallH, null);
         //绘边框
         //绘四个角
         int startW = newW - smallW;
