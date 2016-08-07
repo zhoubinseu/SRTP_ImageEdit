@@ -38,15 +38,13 @@ public class EffectBottomFragment extends Fragment{
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
     };
 
     private int[] mTextId=new int[]{
             R.string.effect_binary,R.string.effect_black_white,
             R.string.effect_emboss,R.string.effect_negative,
-            R.string.effect_halo,R.string.effect_ice,
-            R.string.effect_neon,R.string.effect_nostalgic,
-            R.string.effect_light,
+            R.string.effect_ice, R.string.effect_neon,
+            R.string.effect_nostalgic, R.string.effect_light,
     };
 
 

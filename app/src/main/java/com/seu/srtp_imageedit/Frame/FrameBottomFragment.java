@@ -49,6 +49,7 @@ public class FrameBottomFragment extends Fragment{
             R.drawable.icon_frame_11,R.drawable.icon_frame_12,
             R.drawable.icon_frame_13,R.drawable.icon_frame_14,
             R.drawable.icon_frame_15,
+
     };
     private int[] mFrameTextureId=new int[]{
             R.drawable.blend_normal_border_f1,R.drawable.blend_normal_border_f2,
@@ -67,6 +68,7 @@ public class FrameBottomFragment extends Fragment{
             R.drawable.frame_11,R.drawable.frame_12,
             R.drawable.frame_13,R.drawable.frame_14,
             R.drawable.frame_15,
+
     };
 
     @Nullable

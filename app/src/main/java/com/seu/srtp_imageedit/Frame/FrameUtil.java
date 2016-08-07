@@ -68,7 +68,7 @@ public class FrameUtil {
      */
     public static Bitmap addFrameByStitch(Context context,Drawable srcBitmapDrawable,int frameTextureId){
         Bitmap bm= BitmapFactory.decodeResource(context.getResources(),frameTextureId);//边框资源图
-        Bitmap frameBitmap=resize(bm, 30, 30);//将边框资源图缩小，用于拼接
+        Bitmap frameBitmap=resize(bm, 50, 50);//将边框资源图缩小，用于拼接
         bm.recycle();//回收Bitmap资源
         //获得边框的宽高
         final int smallW=frameBitmap.getWidth();

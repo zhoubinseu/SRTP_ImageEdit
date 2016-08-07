@@ -45,6 +45,9 @@ public class EffectUtil {
             case R.string.effect_binary:
                 bm=binaryzation(srcBitmapDrawable);
                 break;
+            case R.string.effect_light:
+                bm=light(srcBitmapDrawable);
+                break;
             default:
                 break;
         }
@@ -344,6 +347,58 @@ public class EffectUtil {
                 b1=255;
             }
             newPx[i]=Color.argb(a,r1,g1,b1);
+        }
+        destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
+        return destBitmap;
+    }
+    //光照
+    private static Bitmap light(Drawable srcBitmapDrawable){
+        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        int srcWidth= srcBitmap.getWidth();
+        int srcHeight= srcBitmap.getHeight();
+        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int color;
+        int r,g,b,a;//旧的分量
+        int r1,g1,b1;//新的分量
+
+        int[] oldPx=new int[srcWidth*srcHeight];
+        int[] newPx=new int[srcWidth*srcHeight];
+
+        srcBitmap.getPixels(oldPx,0,srcWidth,0,0,srcWidth,srcHeight);
+
+        // 围绕圆形光照
+        int centerX = srcWidth / 2;
+        int centerY = srcHeight / 2;
+        int radius = Math.min(centerX, centerY);
+        float strength = 100F;// 光照强度100-150
+
+        for (int i = 0; i < srcHeight; i++) {
+            for (int k = 0; k < srcWidth; k++) {
+                // 获取前一个像素颜色  
+                color = oldPx[srcWidth * i + k];
+                r = Color.red(color);
+                g = Color.green(color);
+                b = Color.blue(color);
+                a = Color.alpha(color);
+                r1 = r;
+                g1 = g;
+                b1 = b;
+                // 计算当前点到光照中心的距离,平面坐标系中两点之间的距离  
+                int distance = (int) (Math.pow((centerY - i), 2) + Math.pow(
+                        (centerX - k), 2));
+                if (distance < radius * radius) {
+                    // 按照距离大小计算增强的光照值  
+                    int result = (int) (strength * (1.0 - Math.sqrt(distance) / radius));
+                    r1 = r + result;
+                    g1 = g1 + result;
+                    b1 = b + result;
+                }
+                r1 = Math.min(255, Math.max(0, r1));
+                g1 = Math.min(255, Math.max(0, g1));
+                b1 = Math.min(255, Math.max(0, b1));
+                newPx[srcWidth * i + k] = Color.argb(a, r1, g1, b1);
+            }
         }
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
