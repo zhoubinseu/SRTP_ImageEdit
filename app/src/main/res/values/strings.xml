@@ -38,5 +38,6 @@
     <string name="effect_neon">霓虹</string>
     <string name="effect_nostalgic">怀旧</string>
     <string name="effect_light">光照</string>
+    <string name="effect_sketch">素描</string>
     <string name="effect">特效</string>
 </resources>
