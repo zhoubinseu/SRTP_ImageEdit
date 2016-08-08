@@ -113,32 +113,13 @@ public class Image {
     }
 
     /**
-     * 根据图片的路径将图片缩放，然后显示
+     * 根据图片的绝对路径读取并缩放图片，并在ImageView显示图片
      * @param path
      * @param mImageView
-     * @param destWidth
-     * @param destHeight
      */
-    public static void showScaledImage(String path,ImageView mImageView,int destWidth,int destHeight){
-        BitmapFactory.Options options=new BitmapFactory.Options();
-        options.inJustDecodeBounds=true;
-        BitmapFactory.decodeFile(path,options);
-
-        float srcWidth=options.outWidth;
-        float srcHeight=options.outHeight;
-
-        int inSampleSize=1;
-        if(srcHeight>destHeight||srcWidth>destWidth){
-            if(srcWidth>srcHeight){
-                inSampleSize=Math.round(srcHeight/destHeight);
-            }else{
-                inSampleSize=Math.round(srcWidth/destWidth);
-            }
-        }
-        options=new BitmapFactory.Options();
-        options.inSampleSize=inSampleSize;
-        Bitmap bitmap=BitmapFactory.decodeFile(path,options);
-        mImageView.setImageBitmap(bitmap);
+    public static void showScaledImage(String path,ImageView mImageView){
+        Bitmap bm=Image.resizeImage(path);
+        mImageView.setImageBitmap(bm);
     }
 
     /**

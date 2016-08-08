@@ -59,7 +59,8 @@ public class EditImageActivity extends AppCompatActivity{
         mFunctionNameId=getIntent().getIntExtra(FUNCTION_CODE, R.string.tool_adjust);
 
         mImageView=(ImageView)findViewById(R.id.image_to_edit);
-        Image.showImage(mImagePath,mImageView);//显示图片
+        //显示经过缩放的图片,可有效防止OOM
+        Image.showScaledImage(mImagePath,mImageView);
         //判断功能号，加载碎片，默认布局为旋转操作的布局
         judgeFunction(mFunctionNameId);
 
