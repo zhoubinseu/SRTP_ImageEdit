@@ -292,4 +292,20 @@ public class Image {
         return bitmap;
     }
 
+    /**
+     * 由于相机分辨率很高，图片占用资源过大，对图片进行压缩
+     * @param imagePath
+     * @return
+     */
+    public static Bitmap resizeImage(String imagePath){
+        BitmapFactory.Options options=new BitmapFactory.Options();
+        options.inJustDecodeBounds=true;//将此属性设置为true，不会加载图片，仅仅获得尺寸
+        BitmapFactory.decodeFile(imagePath, options);//将imagePath路径下的图片的尺寸保存在options
+        double ratio=Math.max(options.outWidth*1.0d/1024f,options.outHeight*1.0d/1024f);//计算缩放率
+        options.inSampleSize= (int) Math.ceil(ratio);
+        options.inJustDecodeBounds=false;//将此属性设置为false
+        Bitmap bmp=BitmapFactory.decodeFile(imagePath,options);//获取缩放后的图片
+        return bmp;
+    }
+
 }

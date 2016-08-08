@@ -417,7 +417,7 @@ public class EffectUtil {
     }
 
     //模糊效果
-    public static Bitmap blur(Drawable srcBitmapDrawable) {
+    private static Bitmap blur(Drawable srcBitmapDrawable) {
 
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int width = srcBitmap.getWidth();
@@ -562,7 +562,6 @@ public class EffectUtil {
         destBitmap.setPixels(result, 0, width, 0, 0, width, height);
         return destBitmap;
     }
-
     // 高斯模糊
     private static int[] gaussBlur(int[] data, int width, int height, int radius, float sigma) {
         float pa = (float) (1 / (Math.sqrt(2 * Math.PI) * sigma));
@@ -639,7 +638,6 @@ public class EffectUtil {
         }
         return data;
     }
-
     // 颜色减淡
     private static int[] colorDodge(int[] baseColor, int[] mixColor) {
         for (int i = 0, length = baseColor.length; i < length; ++i) {
@@ -660,7 +658,6 @@ public class EffectUtil {
         }
         return baseColor;
     }
-
     private static int colorDodgeFormular(int base, int mix) {
         int result = base + (base * mix) / (255 - mix);
         result = result > 255 ? 255 : result;
