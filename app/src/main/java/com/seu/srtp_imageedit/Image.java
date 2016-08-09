@@ -26,6 +26,7 @@ import java.io.FileOutputStream;
  */
 public class Image {
     /**
+     * 依然不能适配所有设备，暂时弃用
      *根据Uri获得图片的路径，适配不同API
      */
     public static String getRealPathFromUri(Context context, Uri uri) {
@@ -104,6 +105,20 @@ public class Image {
     }
 
     /**
+     * 通过URI获得图片的绝对路径
+     * @return
+     */
+    public static String getImagePathFromUri(Context context,Uri uri){
+        Cursor cursor=context.getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+
+        int idx=cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+        String ImagePath=cursor.getString(idx);//the path of the photo selected
+        cursor.close();
+        return ImagePath;
+    }
+
+    /**
      * 根据图片的绝对路径读取并在ImageView显示图片
      * @param path
      */
@@ -154,7 +169,8 @@ public class Image {
      * @param fragment
      */
     public static void ChooseImage(final int requestCode,final Fragment fragment){
-        Intent chooseIntent=new Intent(Intent.ACTION_GET_CONTENT);
+        //Intent chooseIntent=new Intent(Intent.ACTION_GET_CONTENT);
+        Intent chooseIntent=new Intent(Intent.ACTION_PICK);
         chooseIntent.setType("image/*");
         fragment.startActivityForResult(chooseIntent, requestCode);
     }
@@ -165,7 +181,8 @@ public class Image {
      * @param activity
      */
     public static void ChooseImage(final int requestCode,final Activity activity){
-        Intent chooseIntent=new Intent(Intent.ACTION_GET_CONTENT);
+        //Intent chooseIntent=new Intent(Intent.ACTION_GET_CONTENT);//获取路径在不同设备上有问题
+        Intent chooseIntent=new Intent(Intent.ACTION_PICK);
         chooseIntent.setType("image/*");
         activity.startActivityForResult(chooseIntent, requestCode);
     }

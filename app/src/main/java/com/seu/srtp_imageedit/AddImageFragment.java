@@ -89,7 +89,8 @@ public class AddImageFragment extends Fragment{
         if(requestCode==REQUEST_ALBUM){
             //将选中图片的路径传递给编辑界面
             Uri uri=data.getData();
-            String path= Image.getRealPathFromUri(getActivity(), uri);
+            //String path= Image.getRealPathFromUri(getActivity(), uri);
+            String path=Image.getImagePathFromUri(getActivity(),uri);
             startActivity(ShowImageActivity.newIntent(getActivity(), path));
         }else if(requestCode==REQUEST_CAMERA){
             startActivity(ShowImageActivity.newIntent(getActivity(), photoPath));

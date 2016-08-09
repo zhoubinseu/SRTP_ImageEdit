@@ -78,7 +78,7 @@ public class ShowImageActivity extends AppCompatActivity{
         });
 
         mImagePath=getIntent().getStringExtra(IMAGE_PATH);
-        //Toast.makeText(ShowImageActivity.this,path,Toast.LENGTH_SHORT).show();
+        Toast.makeText(ShowImageActivity.this,mImagePath,Toast.LENGTH_SHORT).show();
         //此处显示图片不必缩放
         Image.showImage(mImagePath, mImageView);
     }
