@@ -41,4 +41,10 @@
     <string name="effect_sketch">素描</string>
     <string name="effect_blur">模糊</string>
     <string name="effect">特效</string>
+    <string name="adjust_luminance">亮度</string>
+    <string name="adjust_hue">色调</string>
+    <string name="adjust_saturation">饱和度</string>
+    <string name="adjust_contrast">对比度</string>
+    <string name="adjust_transparency">透明度</string>
+    <string name="adjust_temperature">色温</string>
 </resources>
