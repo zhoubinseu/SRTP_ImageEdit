@@ -60,6 +60,9 @@ public class EffectUtil {
             case R.string.effect_blur:
                 bm=blur(srcBitmapDrawable);
                 break;
+            case R.string.effect_poster:
+                bm=poster(srcBitmapDrawable);
+                break;
             default:
                 break;
         }
@@ -322,6 +325,45 @@ public class EffectUtil {
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
         Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int color;//当前像素
+        int color_right;//当前像素右侧的像素
+        int color_bottom;//当前像素下方的像素
+        int r,g,b;
+
+        int[] oldPx=new int[srcWidth*srcHeight];
+
+        srcBitmap.getPixels(oldPx,0,srcWidth,0,0,srcWidth,srcHeight);
+
+        for(int i=0;i<srcWidth-1;i++){
+            for(int j=0;j<srcHeight-1;j++){
+                color=oldPx[j*srcWidth+i];
+                //获取i+1像素
+                color_right = oldPx[j*srcWidth+i+1];
+                //获取j+1像素
+                color_bottom = oldPx[(j+1)*srcWidth+i];
+
+                //计算R分量
+                r = (int) (Math.pow((Color.red(color)-Color.red(color_right)),2)
+                        +Math.pow((Color.red(color)-Color.red(color_bottom)),2));
+                r = ((int) (Math.sqrt(r)*2));
+                r = Math.min(255,Math.max(0,r));
+
+                //计算G 分量
+                g = (int) (Math.pow((Color.green(color)-Color.green(color_right)),2)
+                        +Math.pow((Color.green(color)-Color.green(color_bottom)),2));
+                g = ((int) (Math.sqrt(g)*2));
+                g = Math.min(255,Math.max(0,g));
+                //计算B分量
+                b = (int) (Math.pow((Color.blue(color)-Color.blue(color_right)),2)
+                        +Math.pow((Color.blue(color)-Color.blue(color_bottom)),2));
+                b = ((int) (Math.sqrt(b)*2));
+                b = Math.min(255,Math.max(0,b));
+
+                oldPx[j*srcWidth+i] = Color.argb(Color.alpha(color),r,g,b);
+            }
+        }
+        destBitmap.setPixels(oldPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
     //怀旧
@@ -662,6 +704,15 @@ public class EffectUtil {
         int result = base + (base * mix) / (255 - mix);
         result = result > 255 ? 255 : result;
         return result;
+    }
+
+    /**
+     * 海报效果
+     * @param srcBitmapDrawable
+     * @return
+     */
+    private static Bitmap poster(Drawable srcBitmapDrawable){
+        return null;
     }
 
 }

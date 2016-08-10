@@ -40,6 +40,7 @@
     <string name="effect_light">光照</string>
     <string name="effect_sketch">素描</string>
     <string name="effect_blur">模糊</string>
+    <string name="effect_poster">海报</string>
     <string name="effect">特效</string>
     <string name="adjust_luminance">亮度</string>
     <string name="adjust_hue">色调</string>
