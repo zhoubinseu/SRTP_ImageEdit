@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <RelativeLayout
         android:id="@+id/operation_panel"
@@ -39,11 +40,20 @@
 
     </RelativeLayout>
 
+    <SeekBar
+        android:layout_above="@id/operation_panel"
+        android:id="@+id/adjust_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/image_to_edit"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/operation_panel"
+        android:layout_above="@id/adjust_seekbar"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         />

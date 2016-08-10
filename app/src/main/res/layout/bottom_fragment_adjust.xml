@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/show_adjust_function"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"/>
     <ImageButton
         android:id="@+id/choose_adjust_effect_button"
-        android:layout_width="match_parent"
+        android:layout_width="0dip"
         android:layout_height="match_parent"
+        android:layout_weight="2"
         android:src="@drawable/ic_adjust_button"
         android:background="@android:color/transparent"/>
+    <Button
+        android:id="@+id/show_adjust_seekbar_value"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>
