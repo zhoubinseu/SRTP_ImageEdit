@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.seu.srtp_imageedit.Frame.FrameUtil;
 import com.seu.srtp_imageedit.Function_Item;
 import com.seu.srtp_imageedit.Function_Item_Adapter;
+import com.seu.srtp_imageedit.Image;
 import com.seu.srtp_imageedit.ImageGalleryAdapter;
 import com.seu.srtp_imageedit.ImageTextGalleryAdapter;
 import com.seu.srtp_imageedit.R;
@@ -60,20 +61,13 @@ public class AdjustBottomFragment extends Fragment implements SeekBar.OnSeekBarC
 
     private Map<Integer,Integer> mAdjustValueMap=new HashMap<>();
 
-    private float mLuminance;//亮度
-    private float mHue;//色调
-    private float mSaturation;//饱和度
-    private float mContrast;//对比度
-    private float mTransparency;//透明度
-    private float mTemperature;//色温
-
     private void initMap(){
-        mAdjustValueMap.put(R.string.adjust_luminance,MID_VALUE);
-        mAdjustValueMap.put(R.string.adjust_hue,MID_VALUE);
-        mAdjustValueMap.put(R.string.adjust_saturation,MID_VALUE);
-        mAdjustValueMap.put(R.string.adjust_contrast,MID_VALUE);
-        mAdjustValueMap.put(R.string.adjust_transparency,MID_VALUE);
-        mAdjustValueMap.put(R.string.adjust_temperature,MID_VALUE);
+        mAdjustValueMap.put(R.string.adjust_luminance,MID_VALUE);//亮度
+        mAdjustValueMap.put(R.string.adjust_hue,MID_VALUE);//色调
+        mAdjustValueMap.put(R.string.adjust_saturation,MID_VALUE);//饱和度
+        mAdjustValueMap.put(R.string.adjust_contrast,MID_VALUE);//对比度
+        mAdjustValueMap.put(R.string.adjust_transparency,MID_VALUE);//透明度
+        mAdjustValueMap.put(R.string.adjust_temperature,MID_VALUE);//色温
     }
 
     private void initFunctionList(){
@@ -124,6 +118,7 @@ public class AdjustBottomFragment extends Fragment implements SeekBar.OnSeekBarC
         mValueButton.setText(""+progress);
         //保存当前设置的值
         mAdjustValueMap.put(ADJUST_STATUS,progress);
+
         mBitmap=AdjustUtil.AdjustImage(ADJUST_STATUS,progress,srcBitmapDrawable);
         mImageView.setImageBitmap(mBitmap);
         //mImageView.setImageAlpha(progress/100);
@@ -165,10 +160,12 @@ public class AdjustBottomFragment extends Fragment implements SeekBar.OnSeekBarC
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //点击选择的属性后，悬浮框消失
+                //点击选择的功能后，悬浮框消失
                 if (popupWindow.isShowing()){
                     popupWindow.dismiss();
                 }
+                //保存此前已经对图片进行的调整效果，这样使得属性的调整是叠加的
+                //srcBitmapDrawable=mImageView.getDrawable();
                 Function_Item item = mAdjustFunctionList.get(position);
                 //Toast.makeText(getActivity(), item.getmFuntionNameId(), Toast.LENGTH_SHORT).show();
                 //当前正在调整的图片属性
