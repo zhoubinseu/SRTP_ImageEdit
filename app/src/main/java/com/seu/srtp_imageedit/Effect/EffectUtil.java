@@ -7,6 +7,8 @@ import android.graphics.drawable.Drawable;
 import com.seu.srtp_imageedit.Image;
 import com.seu.srtp_imageedit.R;
 
+import java.util.Random;
+
 /**
  * Created by Administrator on 2016/8/4.
  */
@@ -63,13 +65,23 @@ public class EffectUtil {
             case R.string.effect_poster:
                 bm=poster(srcBitmapDrawable);
                 break;
+            case R.string.effect_oil:
+                bm=oil(srcBitmapDrawable);
+                break;
+            case R.string.effect_feather:
+                bm=feather(srcBitmapDrawable);
+                break;
             default:
                 break;
         }
         return bm;
     }
 
-    //黑白
+    /**
+     * 黑白
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap blackWhite(Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
@@ -108,12 +120,17 @@ public class EffectUtil {
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //二值化:先进行黑白处理，在设定阈值，进行二值化处理
+
+    /**
+     *  二值化:先进行黑白处理，在设定阈值，进行二值化处理
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap binaryzation(Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
-        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+        Bitmap destBitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
 
         int color;
         int r,g,b,a;//旧的分量
@@ -160,13 +177,18 @@ public class EffectUtil {
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //浮雕
+
+    /**
+     * 浮雕
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap emboss(Drawable srcBitmapDrawable){
         //将参数Drawable转化为Bitmap
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
-        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+        Bitmap destBitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
 
         int color=0;//当前点
         int colorBefore=0;//前一个点
@@ -206,10 +228,15 @@ public class EffectUtil {
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //底片
+
+    /**
+     * 底片
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap negative(Drawable srcBitmapDrawable){
         //将参数Drawable转化为Bitmap
-        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        Bitmap srcBitmap = Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
         Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
@@ -264,9 +291,14 @@ public class EffectUtil {
 
         return destBitmap;
     }
-    //冰冻
+
+    /**
+     * 冰冻
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap ice(Drawable srcBitmapDrawable){
-        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        Bitmap srcBitmap = Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
         Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
@@ -329,7 +361,7 @@ public class EffectUtil {
      * @return
      */
     private static Bitmap neon(Drawable srcBitmapDrawable){
-        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        Bitmap srcBitmap = Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
         Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
@@ -374,12 +406,17 @@ public class EffectUtil {
         destBitmap.setPixels(oldPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //怀旧
+
+    /**
+     * 怀旧
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap nostalgic(Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
         int srcHeight= srcBitmap.getHeight();
-        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+        Bitmap destBitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
 
         int color;
         int r,g,b,a;//旧的分量
@@ -413,7 +450,12 @@ public class EffectUtil {
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //光照
+
+    /**
+     * 光照
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap light(Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();
@@ -466,7 +508,11 @@ public class EffectUtil {
         return destBitmap;
     }
 
-    //模糊效果
+    /**
+     * 模糊
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap blur(Drawable srcBitmapDrawable) {
 
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
@@ -574,7 +620,11 @@ public class EffectUtil {
         return (x < a) ? a : (x > b) ? b : x;
     }
 
-    //素描
+    /**
+     * 素描
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap sketch(Drawable srcBitmapDrawable) {
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int width= srcBitmap.getWidth();
@@ -721,6 +771,98 @@ public class EffectUtil {
      */
     private static Bitmap poster(Drawable srcBitmapDrawable){
         return null;
+    }
+
+    /**
+     * 油画
+     * @param srcBitmapDrawable
+     * @return
+     */
+    private static Bitmap oil(Drawable srcBitmapDrawable){
+        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        int srcWidth= srcBitmap.getWidth();
+        int srcHeight= srcBitmap.getHeight();
+        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int color=0;
+        Random random=new Random();
+        int iModel=4;
+        int i=srcWidth-iModel;
+        int pos=0,iPos;
+
+        int[] Px=new int[srcWidth*srcHeight];
+        srcBitmap.getPixels(Px, 0, srcWidth, 0, 0, srcWidth, srcHeight);
+
+        while (i>1){
+            int j=srcHeight-iModel;
+            while(j>1){
+                iPos=random.nextInt(100000000)%iModel;
+                pos=(j+iPos)*srcWidth+(i+iPos);
+                color=Px[pos];
+                pos=j*srcWidth+i;
+                Px[pos]=color;
+                j--;
+            }
+            i--;
+        }
+        destBitmap.setPixels(Px,0,srcWidth,0,0,srcWidth,srcHeight);
+        return destBitmap;
+    }
+
+    /**
+     * 羽化
+     * @param srcBitmapDrawable
+     * @return
+     */
+    private static Bitmap feather(Drawable srcBitmapDrawable){
+        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        int srcWidth= srcBitmap.getWidth();
+        int srcHeight= srcBitmap.getHeight();
+        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int[] Px=new int[srcWidth*srcHeight];
+        srcBitmap.getPixels(Px, 0, srcWidth, 0, 0, srcWidth, srcHeight);
+
+        int ratio = srcWidth > srcHeight ? srcHeight*32768/srcWidth : srcWidth*32768/srcHeight;
+
+        int cx = srcWidth >> 1;
+        int cy = srcHeight >> 1;
+        int max = cx * cx + cy * cy;
+        int min = (int) (max * (1 - 0.5f));
+        int diff = max - min;
+
+        int R, G, B;
+        int pos, pixColor;
+        for (int y = 0; y < srcHeight; y++) {
+            for (int x = 0; x < srcWidth; x++) {
+                pos = y * srcWidth + x;
+                pixColor = Px[pos];
+                R = Color.red(pixColor);
+                G = Color.green(pixColor);
+                B = Color.blue(pixColor);
+
+                int dx = cx - x;
+                int dy = cy - y;
+                if (srcWidth > srcHeight) {
+                    dx = (dx * ratio) >> 15;
+                } else {
+                    dy = (dy * ratio) >> 15;
+                }
+
+                int distSq = dx * dx + dy * dy;
+                float v = ((float) distSq / diff) * 255;
+                R = (int) (R + (v));
+                G = (int) (G + (v));
+                B = (int) (B + (v));
+                R = (R > 255 ? 255 : (R < 0 ? 0 : R));
+                G = (G > 255 ? 255 : (G < 0 ? 0 : G));
+                B = (B > 255 ? 255 : (B < 0 ? 0 : B));
+
+                Px[pos] = Color.rgb(R, G, B);
+            }
+        }
+        destBitmap.setPixels(Px,0,srcWidth,0,0,srcWidth,srcHeight);
+        return destBitmap;
     }
 
 }
