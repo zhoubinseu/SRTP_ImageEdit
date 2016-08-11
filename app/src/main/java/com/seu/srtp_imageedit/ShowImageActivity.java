@@ -95,6 +95,8 @@ public class ShowImageActivity extends AppCompatActivity{
         mFunctionList.add(frame_item);
         Function_Item scrawl_item=new Function_Item(R.string.tool_scrawl,R.drawable.ic_brush_button);
         mFunctionList.add(scrawl_item);
+        Function_Item sharpen_item=new Function_Item(R.string.sharpen,R.drawable.ic_sharpen_button);
+        mFunctionList.add(sharpen_item);
         Function_Item effect_item=new Function_Item(R.string.effect,R.drawable.ic_effect_button);
         mFunctionList.add(effect_item);
     }
