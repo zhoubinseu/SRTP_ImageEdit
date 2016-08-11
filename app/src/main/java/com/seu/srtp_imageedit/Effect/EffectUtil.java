@@ -319,7 +319,15 @@ public class EffectUtil {
         destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
-    //霓虹
+
+    /**
+     * 霓虹（边缘高亮）
+     * 原理：计算原像素的RGB分量与相同行(i+1)以及相同列(j+1)相邻像素的梯度，
+     * 就是差的平方和的平方根，
+     * 然后将梯度值作为处理后的像素
+     * @param srcBitmapDrawable
+     * @return
+     */
     private static Bitmap neon(Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         int srcWidth= srcBitmap.getWidth();

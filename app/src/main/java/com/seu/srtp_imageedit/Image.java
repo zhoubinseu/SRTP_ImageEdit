@@ -17,6 +17,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.CursorLoader;
 import android.widget.ImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -291,7 +292,7 @@ public class Image {
     }
 
     /**
-     * 由于相机分辨率很高，图片占用资源过大，对图片进行压缩
+     * 由于相机分辨率很高，图片加载到内存中占用资源过大，对图片像素进行压缩
      * @param imagePath
      * @return
      */
@@ -304,6 +305,28 @@ public class Image {
         options.inJustDecodeBounds=false;//将此属性设置为false
         Bitmap bmp=BitmapFactory.decodeFile(imagePath,options);//获取缩放后的图片
         return bmp;
+    }
+
+    /**
+     * 压缩bitmap至指定大小,并将bitmap转换为输出流,待写入文件或者上传
+     * @param image
+     * @param size 大小,以kb为计算单位
+     * @return
+     */
+    public static byte[] compressBmp(Bitmap image, int size) {
+        if(image == null){
+            return null;
+        }
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        int options = 100;
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        //压缩文件至不超过100K
+        while (baos.toByteArray().length / 1024 > size) {
+            baos.reset();
+            options -= 10;
+            image.compress(Bitmap.CompressFormat.JPEG, options, baos);
+        }
+        return baos.toByteArray();
     }
 
 }
