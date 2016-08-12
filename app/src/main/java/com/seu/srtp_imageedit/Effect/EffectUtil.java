@@ -71,6 +71,9 @@ public class EffectUtil {
             case R.string.effect_feather:
                 bm=feather(srcBitmapDrawable);
                 break;
+            case R.string.effect_molten:
+                bm=molten(srcBitmapDrawable);
+                break;
             default:
                 break;
         }
@@ -862,6 +865,61 @@ public class EffectUtil {
             }
         }
         destBitmap.setPixels(Px,0,srcWidth,0,0,srcWidth,srcHeight);
+        return destBitmap;
+    }
+
+    /**
+     * 熔铸
+     * @param srcBitmapDrawable
+     * @return
+     */
+    private static Bitmap molten(Drawable srcBitmapDrawable){
+        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        int srcWidth= srcBitmap.getWidth();
+        int srcHeight= srcBitmap.getHeight();
+        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int[] oldPx=new int[srcWidth*srcHeight];
+        int[] newPx=new int[srcWidth*srcHeight];
+        int color;
+        int a,r,g,b,pixel;
+
+        srcBitmap.getPixels(oldPx, 0, srcWidth, 0, 0, srcWidth, srcHeight);
+
+        for(int i=0;i<srcWidth*srcHeight;i++){
+            color=oldPx[i];
+            a=Color.alpha(color);
+            r=Color.red(color);
+            g=Color.green(color);
+            b=Color.blue(color);
+            //r
+            pixel=r*128/(g+b+1);
+            if(pixel<0){
+                pixel=0;
+            }else if(pixel>255){
+                pixel=255;
+            }
+            r=pixel;
+            //g
+            pixel=g*128/(r+b+1);
+            if(pixel<0){
+                pixel=0;
+            }else if(pixel>255){
+                pixel=255;
+            }
+            g=pixel;
+            //b
+            pixel=b*128/(g+r+1);
+            if(pixel<0){
+                pixel=0;
+            }else if(pixel>255){
+                pixel=255;
+            }
+            b=pixel;
+
+            newPx[i]=Color.argb(a,r,g,b);
+        }
+        destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
         return destBitmap;
     }
 

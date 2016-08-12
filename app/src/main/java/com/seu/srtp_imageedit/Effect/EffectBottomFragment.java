@@ -40,7 +40,7 @@ public class EffectBottomFragment extends Fragment{
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
             R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
+            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
     };
 
     private int[] mTextId=new int[]{
@@ -50,7 +50,7 @@ public class EffectBottomFragment extends Fragment{
             R.string.effect_ice, R.string.effect_neon,
             R.string.effect_nostalgic, R.string.effect_light,
             R.string.effect_poster,R.string.effect_feather,
-            R.string.effect_oil,
+            R.string.effect_oil,R.string.effect_molten,
     };
 
 

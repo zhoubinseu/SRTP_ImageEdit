@@ -43,6 +43,7 @@
     <string name="effect_poster">海报</string>
     <string name="effect_oil">油画</string>
     <string name="effect_feather">羽化</string>
+    <string name="effect_molten">熔铸</string>
     <string name="effect">特效</string>
     <string name="adjust_luminance">亮度</string>
     <string name="adjust_hue">色调</string>
