@@ -18,6 +18,7 @@ import com.seu.srtp_imageedit.Frame.FrameBottomFragment;
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
 import com.seu.srtp_imageedit.Scrawl.ScrawlBottomFragment;
 import com.seu.srtp_imageedit.Sharpen.SharpenBottomFragment;
+import com.seu.srtp_imageedit.Vignette.VignetteBottomFragment;
 
 import java.io.File;
 
@@ -134,6 +135,11 @@ public class EditImageActivity extends AppCompatActivity{
             case R.string.sharpen:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
                 addFragment(new SharpenBottomFragment());
+                break;
+            //晕影
+            case R.string.effect_vignette:
+                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new VignetteBottomFragment());
                 break;
             default:
                 Toast.makeText(EditImageActivity.this,"Have not write!!!",Toast.LENGTH_SHORT).show();

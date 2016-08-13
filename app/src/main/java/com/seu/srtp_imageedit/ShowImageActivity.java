@@ -99,6 +99,8 @@ public class ShowImageActivity extends AppCompatActivity{
         mFunctionList.add(sharpen_item);
         Function_Item effect_item=new Function_Item(R.string.effect,R.drawable.ic_effect_button);
         mFunctionList.add(effect_item);
+        Function_Item vignette_item=new Function_Item(R.string.effect_vignette,R.drawable.ic_vignette_button);
+        mFunctionList.add(vignette_item);
     }
 
     /**
