@@ -44,6 +44,7 @@
     <string name="effect_oil">油画</string>
     <string name="effect_feather">羽化</string>
     <string name="effect_molten">熔铸</string>
+    <string name="effect_haha">扭曲</string>
     <string name="effect_vignette">晕影</string>
     <string name="vignette_radius">晕影半径</string>
     <string name="vignette_light">中心亮度</string>

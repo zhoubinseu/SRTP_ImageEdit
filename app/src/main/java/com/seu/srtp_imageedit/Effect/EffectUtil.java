@@ -29,6 +29,9 @@ public class EffectUtil {
     public static Bitmap process_effect(int effectNameId,Drawable srcBitmapDrawable){
         Bitmap bm=null;
         switch (effectNameId){
+            case R.string.effect_haha:
+                bm=haha(srcBitmapDrawable);
+                break;
             case R.string.effect_sketch:
                 bm=sketch(srcBitmapDrawable);
                 break;
@@ -78,6 +81,71 @@ public class EffectUtil {
                 break;
         }
         return bm;
+    }
+
+    /**
+     * 哈哈镜特效
+     * @param srcBitmapDrawable
+     * @return
+     */
+    private static Bitmap haha(Drawable srcBitmapDrawable){
+        Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
+        int srcWidth= srcBitmap.getWidth();
+        int srcHeight= srcBitmap.getHeight();
+        Bitmap destBitmap=Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+
+        int centerX=srcWidth/2;
+        int centerY=srcHeight/2;
+        float radius=Math.min(centerX*2/3,centerY*2/3);
+        float mutiple=2.0f;
+
+        int[] oldPx=new int[srcWidth*srcHeight];
+        int[] newPx=new int[srcWidth*srcHeight];
+        srcBitmap.getPixels(oldPx,0,srcWidth,0,0,srcWidth,srcHeight);
+
+        int x, y, pos, color;
+        int R, G, B;
+        int distance;
+        int src_x, src_y, src_color;
+        int real_radius = (int)(radius / mutiple);
+
+        for(y=0; y<srcHeight; y++){
+            for(x=0; x<srcWidth; x++){
+                pos = y*srcWidth + x;
+                color = oldPx[pos];
+
+                R = Color.red(color);
+                G = Color.green(color);
+                B = Color.blue(color);
+
+                distance = (centerX-x)*(centerX-x) + (centerY-y)*(centerY-y);
+                if (distance < radius * radius){
+                    src_x = (int)((float)(x-centerX) / mutiple );
+                    src_y = (int)((float)(y-centerY) / mutiple );
+                    src_x = (int)(src_x * (Math.sqrt(distance) / real_radius));
+                    src_y = (int)(src_y * (Math.sqrt(distance) / real_radius));
+                    src_x += centerX;
+                    src_y += centerY;
+
+                    src_color = oldPx[src_y*srcWidth+src_x];
+                    R = Color.red(src_color);
+                    G = Color.green(src_color);
+                    B = Color.blue(src_color);
+
+                    R = Math.min(255, Math.max(0, R));
+                    G = Math.min(255, Math.max(0, G));
+                    B = Math.min(255, Math.max(0, B));
+
+                    newPx[pos] = Color.rgb(R, G, B);
+                }
+                else{
+                    newPx[pos] = oldPx[pos];
+                }
+
+            }
+        }
+        destBitmap.setPixels(newPx,0,srcWidth,0,0,srcWidth,srcHeight);
+        return destBitmap;
     }
 
     /**
