@@ -78,7 +78,9 @@ public class FilterBottomFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //处理
-                Toast.makeText(getActivity(), "CHOOSE"+mTextId[position], Toast.LENGTH_SHORT).show();
+                mBitmap=FilterUtil.process_filter(mTextId[position],srcBitmapDrawable);
+                mImageView.setImageBitmap(mBitmap);
+                //Toast.makeText(getActivity(), "CHOOSE"+mTextId[position], Toast.LENGTH_SHORT).show();
             }
         });
         final PopupWindow popupWindow=new PopupWindow(view,ViewGroup.LayoutParams.MATCH_PARENT,
