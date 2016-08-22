@@ -58,4 +58,12 @@
     <string name="adjust_temperature">色温</string>
     <string name="sharpen">锐化</string>
     <string name="filter">滤镜</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
 </resources>
