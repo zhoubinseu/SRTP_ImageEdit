@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.seu.srtp_imageedit.Adjust.AdjustBottomFragment;
 import com.seu.srtp_imageedit.Effect.EffectBottomFragment;
+import com.seu.srtp_imageedit.Filter.FilterBottomFragment;
 import com.seu.srtp_imageedit.Frame.FrameBottomFragment;
 import com.seu.srtp_imageedit.Rotate.RotateBottomFragment;
 import com.seu.srtp_imageedit.Scrawl.ScrawlBottomFragment;
@@ -140,6 +141,11 @@ public class EditImageActivity extends AppCompatActivity{
             case R.string.effect_vignette:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
                 addFragment(new VignetteBottomFragment());
+                break;
+            //滤镜
+            case R.string.filter:
+                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
+                addFragment(new FilterBottomFragment());
                 break;
             default:
                 Toast.makeText(EditImageActivity.this,"Have not write!!!",Toast.LENGTH_SHORT).show();

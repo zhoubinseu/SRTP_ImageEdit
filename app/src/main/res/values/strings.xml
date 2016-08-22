@@ -57,4 +57,5 @@
     <string name="adjust_transparency">透明度</string>
     <string name="adjust_temperature">色温</string>
     <string name="sharpen">锐化</string>
+    <string name="filter">滤镜</string>
 </resources>
