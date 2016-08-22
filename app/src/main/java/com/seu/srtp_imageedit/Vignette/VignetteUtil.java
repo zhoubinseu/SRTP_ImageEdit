@@ -11,7 +11,7 @@ import com.seu.srtp_imageedit.Image;
  */
 public class VignetteUtil {
     private static double cRadius = 0.73;//晕影半径,范围[0,1]
-    private static double cLight = 0.25;//中心亮度,范围[0,0.25]
+    private static double cLight = 0.25;//亮度,范围[0,0.25]
     private static double cGradient = 20;//过渡梯度,范围[0,100]
 
     /**

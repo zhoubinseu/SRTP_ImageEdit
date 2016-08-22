@@ -34,7 +34,7 @@ import java.util.Map;
  */
 public class VignetteBottomFragment extends Fragment implements SeekBar.OnSeekBarChangeListener{
     private double cRadius = 0.73;//晕影半径,范围[0,1]
-    private double cLight = 0.25;//中心亮度,范围[0,0.25]
+    private double cLight = 0.25;//亮度,范围[0,0.25]
     private double cGradient = 20;//过渡梯度,范围[0,100]
 
     private int ADJUST_STATUS;//当前正在调整的属性
