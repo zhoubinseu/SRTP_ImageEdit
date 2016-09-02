@@ -19,6 +19,16 @@ public class FilterUtil {
     private static Canvas mCanvas;
     private static Paint mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
 
+    /**
+     * 使用特定的颜色矩阵绘制位图
+     * @param srcBitmap
+     */
+    private static void drawBitmap(Bitmap srcBitmap){
+        mColorMatrix.set(colorArray);
+        mPaint.setColorFilter(new ColorMatrixColorFilter(mColorMatrix));
+        mCanvas.drawBitmap(srcBitmap,0,0,mPaint);
+    }
+
     public static Bitmap process_filter(int filer_number_id,Drawable srcBitmapDrawable){
         Bitmap srcBitmap= Image.DrawableToBitmap(srcBitmapDrawable);
         Bitmap destBitmap=Bitmap.createBitmap(srcBitmap.getWidth(),srcBitmap.getHeight(), Bitmap.Config.ARGB_8888);
@@ -32,13 +42,14 @@ public class FilterUtil {
                         0,0,1,0,0,
                         0,0,0,1,0,
                 };
-                mColorMatrix.set(colorArray);
-                mPaint.setColorFilter(new ColorMatrixColorFilter(mColorMatrix));
-                mCanvas.drawBitmap(srcBitmap,0,0,mPaint);
+                break;
+            case R.string.num_2:
                 break;
             default:
                 break;
         }
+        //绘制位图
+        drawBitmap(srcBitmap);
         return destBitmap;
     }
 
