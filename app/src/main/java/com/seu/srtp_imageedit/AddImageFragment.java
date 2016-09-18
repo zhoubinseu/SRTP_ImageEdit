@@ -17,7 +17,8 @@ import android.widget.TextView;
 import java.io.File;
 
 /**
- * Created by Administrator on 2016/7/18.
+ * 添加待处理图片的Fragment
+ * Created by 周彬 on 2016/7/18.
  */
 public class AddImageFragment extends Fragment{
     private ImageButton mChooseImageButton;

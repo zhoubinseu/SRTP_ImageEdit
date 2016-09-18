@@ -8,7 +8,7 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 
 /**gallery只显示图片
- * Created by Administrator on 2016/8/1.
+ * Created by 周彬 on 2016/8/1.
  */
 public class ImageGalleryAdapter extends BaseAdapter{
     private Context mContext;

@@ -13,10 +13,10 @@ import java.util.List;
 
 /**
  * 自定义功能项的适配器
- * Created by Administrator on 2016/7/28.
+ * Created by 周彬 on 2016/7/28.
  */
 public class Function_Item_Adapter extends ArrayAdapter<Function_Item>{
-    private int mResourceId;
+    private int mResourceId;//自定义Adapter的布局id
 
     public Function_Item_Adapter(Context context, int textViewResourceId, List<Function_Item> objects) {
         super(context, textViewResourceId, objects);

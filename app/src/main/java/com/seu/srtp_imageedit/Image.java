@@ -24,7 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
- * Created by Administrator on 2016/7/20.
+ * Created by 周彬 on 2016/7/20.
  */
 public class Image {
     /**
@@ -294,7 +294,7 @@ public class Image {
 
     /**
      * 由于相机分辨率很高，图片加载到内存中占用资源过大，对图片像素进行压缩
-     * @param imagePath
+     * @param imagePath 要压缩的图片的路径
      * @return
      */
     public static Bitmap resizeImage(String imagePath){

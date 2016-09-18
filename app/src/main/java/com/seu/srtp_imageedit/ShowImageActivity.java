@@ -20,15 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/7/19.
+ * 显示待处理图片的界面
+ * Created by 周彬 on 2016/7/19.
  */
 public class ShowImageActivity extends AppCompatActivity{
     private static final String IMAGE_PATH="com.seu.srtp.imageedit.image_path";
+    //保存图片的目录
     private File  PHOTO_DIR=new File(Environment.getExternalStorageDirectory() + "/SRTP_ImageEdit/CameraCache");
 
     private List<Function_Item> mFunctionList=new ArrayList<Function_Item>();//功能列表
     private DrawerLayout mDrawerLayout;
-    private ListView mListView;
+    private ListView mListView;//处理效果的列表
     private ImageView mImageView;
     //private Bitmap mBitmap;//显示在ImageView上的图片
 
@@ -124,11 +126,11 @@ public class ShowImageActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.menu_item_share:
+            case R.id.menu_item_share://分享
                 //Toast.makeText(ShowImageActivity.this,"分享"+mImagePath,Toast.LENGTH_SHORT).show();
                 Image.shareImage(mImagePath,ShowImageActivity.this);
                 return true;
-            case R.id.menu_item_save:
+            case R.id.menu_item_save://保存
                 //mImageView.setDrawingCacheEnabled(true);//确保可以使用getDrawingCache()获得图像
                 //String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
                 //mImageView.setDrawingCacheEnabled(false);//清空画图缓存区,这样保证连续保存时每次重新加载图像

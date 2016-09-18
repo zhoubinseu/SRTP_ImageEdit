@@ -24,7 +24,8 @@ import com.seu.srtp_imageedit.Vignette.VignetteBottomFragment;
 import java.io.File;
 
 /**
- * Created by Administrator on 2016/7/29.
+ * 编辑图片的Activity
+ * Created by 周彬 on 2016/7/29.
  */
 public class EditImageActivity extends AppCompatActivity{
 
@@ -34,8 +35,8 @@ public class EditImageActivity extends AppCompatActivity{
     private File PHOTO_DIR=new File(Environment.getExternalStorageDirectory() + "/SRTP_ImageEdit/TempApplyPic");
 
     private ImageView mImageView;
-    private ImageButton mCancelButton;
-    private ImageButton mApplyButton;
+    private ImageButton mCancelButton;//取消按钮，取消对图片做的处理
+    private ImageButton mApplyButton;//应用按钮，应用对图片的处理
 
     private String mImagePath;//当前图片的路径
     private int mFunctionNameId;//当前界面的处理功能ID
@@ -43,7 +44,7 @@ public class EditImageActivity extends AppCompatActivity{
     /**
      * 由其他Activity或Fragment调用，启动EditImageActivity
      * @param packageContext
-     * @param path
+     * @param path 传入此界面进行处理的图片的路径
      * @return
      */
     public static Intent newIntent(Context packageContext,String path,int functionNameId){
@@ -56,10 +57,10 @@ public class EditImageActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.edit_image_activity);
+        setContentView(R.layout.edit_image_activity);//加载布局
 
-        mImagePath=getIntent().getStringExtra(IMAGE_PATH);
-        mFunctionNameId=getIntent().getIntExtra(FUNCTION_CODE, R.string.tool_adjust);
+        mImagePath=getIntent().getStringExtra(IMAGE_PATH);//从Intent对象中获得图片路径
+        mFunctionNameId=getIntent().getIntExtra(FUNCTION_CODE, R.string.tool_adjust);//获得当前界面要进行的处理效果
 
         mImageView=(ImageView)findViewById(R.id.image_to_edit);
         //显示经过缩放的图片,可有效防止OOM
@@ -73,7 +74,6 @@ public class EditImageActivity extends AppCompatActivity{
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(EditImageActivity.this,"cancel",Toast.LENGTH_SHORT).show();
                 Image.showImage(mImagePath, mImageView);//显示原图
             }
         });
@@ -82,10 +82,6 @@ public class EditImageActivity extends AppCompatActivity{
         mApplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(EditImageActivity.this,"apply",Toast.LENGTH_SHORT).show();
-                //mImageView.setDrawingCacheEnabled(true);
-                //String path=Image.saveImage(mImageView.getDrawingCache(),PHOTO_DIR).getAbsolutePath();
-                //mImageView.setDrawingCacheEnabled(false);
                 String path=Image.saveImage(mImageView,PHOTO_DIR).getAbsolutePath();
                 startActivity(ShowImageActivity.newIntent(EditImageActivity.this,path));
             }

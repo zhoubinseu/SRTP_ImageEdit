@@ -1,9 +1,9 @@
 package com.seu.srtp_imageedit;
 
 /**
- * 功能项类
+ * 功能项的实体类
  * 包含图像处理功能的图标和名字
- * Created by Administrator on 2016/7/28.
+ * Created by 周彬 on 2016/7/28.
  */
 public class Function_Item {
     private int mFuntionNameId;

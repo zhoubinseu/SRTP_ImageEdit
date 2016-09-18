@@ -16,7 +16,8 @@ import android.graphics.drawable.LayerDrawable;
 import com.seu.srtp_imageedit.Image;
 
 /**
- * Created by Administrator on 2016/8/2.
+ * 添加图片边框的工具类
+ * Created by 周彬 on 2016/8/2.
  */
 public class FrameUtil {
     /**

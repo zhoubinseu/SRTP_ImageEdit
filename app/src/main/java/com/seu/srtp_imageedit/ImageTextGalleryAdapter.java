@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 /**
  * gallery显示图片和文字
- * Created by Administrator on 2016/8/4.
+ * Created by 周彬 on 2016/8/4.
  */
 public class ImageTextGalleryAdapter extends BaseAdapter{
     private Context mContext;
@@ -62,7 +62,7 @@ public class ImageTextGalleryAdapter extends BaseAdapter{
         return convertView;
     }
 
-    //增加这样一个静态类，缓存一下，这样不用每次都重新加载
+    //增加这样一个静态类，缓存已经获得的控件实例，这样不用每次都重新加载
     final class ViewHolder{
         public ImageView imageView;
         public TextView textView;

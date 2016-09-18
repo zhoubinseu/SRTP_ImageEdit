@@ -20,7 +20,8 @@ import com.seu.srtp_imageedit.ImageGalleryAdapter;
 import com.seu.srtp_imageedit.R;
 
 /**
- * Created by Administrator on 2016/8/1.
+ *添加相框的底部操作栏
+ * Created by 周彬 on 2016/8/1.
  */
 public class FrameBottomFragment extends Fragment{
 
@@ -31,7 +32,7 @@ public class FrameBottomFragment extends Fragment{
     private Bitmap mBitmap;//处理之后的图片
     private Drawable srcBitmapDrawable;//未处理的图片
 
-
+    //边框样式
     private int[] mFrameIconId=new int[]{
             R.drawable.eft_blend_normal_border_f1, R.drawable.eft_blend_normal_border_f2,
             R.drawable.eft_blend_normal_border_f3, R.drawable.eft_blend_normal_border_f4,
@@ -51,6 +52,7 @@ public class FrameBottomFragment extends Fragment{
             R.drawable.icon_frame_15,
 
     };
+    //边框纹理
     private int[] mFrameTextureId=new int[]{
             R.drawable.blend_normal_border_f1,R.drawable.blend_normal_border_f2,
             R.drawable.blend_normal_border_f3,R.drawable.blend_normal_border_f4,
@@ -123,7 +125,7 @@ public class FrameBottomFragment extends Fragment{
             }
         });
         popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));//必须设置背景，否则悬浮框不会消失
-        popupWindow.showAsDropDown(mImageButton, 0, 5);
+        popupWindow.showAsDropDown(mImageButton, 0, 5);//设置悬浮框显示的位置
     }
 
 }
