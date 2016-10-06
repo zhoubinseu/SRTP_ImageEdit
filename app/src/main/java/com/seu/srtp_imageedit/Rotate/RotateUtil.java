@@ -2,14 +2,17 @@ package com.seu.srtp_imageedit.Rotate;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 
+import com.seu.srtp_imageedit.Image;
 import com.seu.srtp_imageedit.R;
 
-/**水平、垂直翻转，左右旋转（存在问题：图片不断变小）
- * Created by Administrator on 2016/7/31.
+/**
+ * 实现左右旋转、上下、左右翻转
+ * Created by 周彬 on 2016/7/31.
  */
 public class RotateUtil {
-
     private static int srcWidth;
     private static int srcHeight;
 

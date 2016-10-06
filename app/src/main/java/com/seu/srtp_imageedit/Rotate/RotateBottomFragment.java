@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.seu.srtp_imageedit.Constant;
 import com.seu.srtp_imageedit.R;
 
 /**
  * 旋转操作的操作工具栏
- * Created by Administrator on 2016/7/30.
+ * Created by 周彬 on 2016/7/30.
  */
 public class RotateBottomFragment extends Fragment implements View.OnClickListener{
     private ImageButton mLeftRotateButton;//左转
