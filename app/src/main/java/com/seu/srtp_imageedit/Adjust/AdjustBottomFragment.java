@@ -67,7 +67,7 @@ public class AdjustBottomFragment extends Fragment implements SeekBar.OnSeekBarC
         mAdjustValueMap.put(R.string.adjust_saturation,MID_VALUE);//饱和度
         mAdjustValueMap.put(R.string.adjust_contrast,MID_VALUE);//对比度
         mAdjustValueMap.put(R.string.adjust_transparency,MID_VALUE);//透明度
-        mAdjustValueMap.put(R.string.adjust_temperature,MID_VALUE);//色温
+        //mAdjustValueMap.put(R.string.adjust_temperature,MID_VALUE);//色温
     }
 
     private void initFunctionList(){
@@ -81,8 +81,8 @@ public class AdjustBottomFragment extends Fragment implements SeekBar.OnSeekBarC
         mAdjustFunctionList.add(contrast_item);
         Function_Item transparent_item=new Function_Item(R.string.adjust_transparency,R.drawable.ic_transparent_button);
         mAdjustFunctionList.add(transparent_item);
-        Function_Item temperature_item=new Function_Item(R.string.adjust_temperature,R.drawable.ic_temperature_button);
-        mAdjustFunctionList.add(temperature_item);
+        //Function_Item temperature_item=new Function_Item(R.string.adjust_temperature,R.drawable.ic_temperature_button);
+        //mAdjustFunctionList.add(temperature_item);
     }
 
     @Nullable

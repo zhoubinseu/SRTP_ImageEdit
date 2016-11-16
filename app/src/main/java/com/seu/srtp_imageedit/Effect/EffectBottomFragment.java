@@ -34,14 +34,13 @@ public class EffectBottomFragment extends Fragment{
     private Drawable srcBitmapDrawable;//未处理的图片
 
     private int[] mImageId=new int[]{
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
+            R.drawable.sumiao,R.drawable.mohu,
+            R.drawable.erzhihua,R.drawable.heibai,
+            R.drawable.fudiao,R.drawable.dipian,
+            R.drawable.bingdong,R.drawable.nihong,
+            R.drawable.huaijiu,R.drawable.guangzhao,
+            R.drawable.yuhua,R.drawable.youhua,
+            R.drawable.rongzhu,R.drawable.niuqu,
     };
 
     private int[] mTextId=new int[]{
@@ -50,9 +49,8 @@ public class EffectBottomFragment extends Fragment{
             R.string.effect_emboss,R.string.effect_negative,
             R.string.effect_ice, R.string.effect_neon,
             R.string.effect_nostalgic, R.string.effect_light,
-            R.string.effect_poster,R.string.effect_feather,
-            R.string.effect_oil,R.string.effect_molten,
-            R.string.effect_haha,
+            R.string.effect_feather,R.string.effect_oil,
+            R.string.effect_molten, R.string.effect_haha,
     };
 
 

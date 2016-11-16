@@ -75,6 +75,8 @@ public class EditImageActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Image.showImage(mImagePath, mImageView);//显示原图
+                //将Constant中的部分常量重新设置
+                Constant.getInstance().setRotateCounter(0);//重置旋转计数器
             }
         });
         mApplyButton=(ImageButton)findViewById(R.id.confirm_button);
@@ -118,11 +120,6 @@ public class EditImageActivity extends AppCompatActivity{
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
                 addFragment(new FrameBottomFragment());
                 break;
-            //涂鸦
-            case R.string.tool_scrawl:
-                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
-                addFragment(new ScrawlBottomFragment());
-                break;
             //特效
             case R.string.effect:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
@@ -137,11 +134,6 @@ public class EditImageActivity extends AppCompatActivity{
             case R.string.effect_vignette:
                 Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
                 addFragment(new VignetteBottomFragment());
-                break;
-            //滤镜
-            case R.string.filter:
-                Toast.makeText(EditImageActivity.this,functionNameId,Toast.LENGTH_SHORT).show();
-                addFragment(new FilterBottomFragment());
                 break;
             default:
                 Toast.makeText(EditImageActivity.this,"Have not write!!!",Toast.LENGTH_SHORT).show();

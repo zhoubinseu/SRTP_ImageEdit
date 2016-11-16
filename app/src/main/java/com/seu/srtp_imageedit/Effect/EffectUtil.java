@@ -65,9 +65,6 @@ public class EffectUtil {
             case R.string.effect_blur:
                 bm=blur(srcBitmapDrawable);
                 break;
-            case R.string.effect_poster:
-                bm=poster(srcBitmapDrawable);
-                break;
             case R.string.effect_oil:
                 bm=oil(srcBitmapDrawable);
                 break;
@@ -833,15 +830,6 @@ public class EffectUtil {
         int result = base + (base * mix) / (255 - mix);
         result = result > 255 ? 255 : result;
         return result;
-    }
-
-    /**
-     * 海报效果
-     * @param srcBitmapDrawable
-     * @return
-     */
-    private static Bitmap poster(Drawable srcBitmapDrawable){
-        return null;
     }
 
     /**
